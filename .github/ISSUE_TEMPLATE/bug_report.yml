@@ -1,0 +1,61 @@
+name: Bug report
+description: Something published by CPMForge behaves incorrectly.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most source repositories are private, so this is the right place
+        regardless of which project it concerns.
+
+        Please do not paste customer project names, paths, or workflow
+        contents you are not free to share.
+
+  - type: input
+    id: artefact
+    attributes:
+      label: Which extension or library
+      placeholder: e.g. CPMForge Workflow Lens
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Shown in the Extensions pane, or on the package listing.
+      placeholder: e.g. 0.0.61
+    validations:
+      required: true
+
+  - type: dropdown
+    id: host
+    attributes:
+      label: Where it runs
+      description: An embedded editor and desktop VS Code differ in API surface and version, and that difference is often the answer.
+      options:
+        - Editor embedded in a low-code designer
+        - Desktop VS Code
+        - Other / not applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and what happened instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: The smallest sequence that shows it. A reduced workflow fragment beats a real one.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output
+      description: For an extension, the Output panel channel for that extension. Redact anything client-identifying.
+      render: text
